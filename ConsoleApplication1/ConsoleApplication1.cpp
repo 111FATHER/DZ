@@ -3,7 +3,9 @@
 #include <Windows.h>
 #include <iomanip>
 #include <algorithm>
+#include <cmath>
 
+// ЗАДАНИЯ ЗА 29.09.2025
 void Randarr()
 {
 	int arr[10];
@@ -95,6 +97,8 @@ void Randarr3()
 }
 
 
+
+// ЗАДАНИЯ ЗА 1.10.2025
 void year(int year) 
 {
     if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) 
@@ -206,6 +210,70 @@ void elements(int arr[], int size)
 }
 
 
+
+// ЗАДАНИЯ ЗА 27.10.2025
+int* arr = new int[5];
+int size = 5;
+
+void distributionArr(int*& arr)
+{
+    delete[] arr;
+    arr = new int[5];
+}
+
+void initializationArr(int*& arr)
+{
+
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = rand() % 5;
+    }
+}
+
+void printArr(int*& arr)
+{
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << arr[i];
+        std::cout << "\n";
+    }
+}
+
+void deleteArr(int*& arr)
+{
+    delete[] arr;
+}
+
+void endArr(int*& arr)
+{
+    int size2 = size + 1;
+    int* Arr2 = new int[size2];
+
+    for (int i = 0; i < size; i++)
+    {
+        Arr2[i] = arr[i];
+    }
+    Arr2[size2 - 1] = 5;
+    arr = Arr2;
+
+    for (int i = 0; i < size2; i++)
+    {
+        std::cout << Arr2[i];
+        std::cout << "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
 
@@ -213,6 +281,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	srand(time(NULL));
+
+
 
 
 
@@ -234,6 +304,11 @@ int main()
 
     system("pause");
     system("cls");
+
+
+
+
+
     std::cout << "ЗАДАНИЯ ЗА 1.10.2025 Тема - Урок №8 Функции\n\n";
     Sleep(3000);
     std::cout << "ЗАДАНИЕ 1\n";
@@ -300,11 +375,18 @@ int main()
 
 
 
-
-
-
-
-
+    system("pause");
+    system("cls");
+    std::cout << "ЗАДАНИЯ ЗА 27.10.2025 Тема Урок №0 Особая неделя\n\n";
+    distributionArr(arr);
+    initializationArr(arr);
+    std::cout << "Первый" << "\n";
+    std::cout << "\n";
+    printArr(arr);
+    std::cout << "\nВторой массив";
+    std::cout << "\n";
+    endArr(arr);
+    deleteArr(arr);
 
 return 0;
 
