@@ -263,12 +263,68 @@ void endArr(int*& arr)
     }
 }
 
+// вторая часть задания
+void insertAtIndex(int*& arr, int& size, int index, int value)
+{
+    if (index < 0 || index > size)
+    {
+        std::cout << "Ошибка - неверный индекс для вставки\n";
+        return;
+    }
 
+    int* newArr = new int[size + 1];
 
+    for (int i = 0; i < index; i++)
+    {
+        newArr[i] = arr[i];
+    }
 
+    newArr[index] = value;
 
+    for (int i = index; i < size; i++)
+    {
+        newArr[i + 1] = arr[i];
+    }
 
+    delete[] arr;
+    arr = newArr;
+    size++;
 
+    std::cout << "Элемент " << value << " вставлен на позицию " << index << "\n";
+}
+
+void removeAtIndex(int*& arr, int& size, int index)
+{
+    if (index < 0 || index >= size)
+    {
+        std::cout << "Ошибка - неверный индекс для удаления\n";
+        return;
+    }
+
+    if (size == 0)
+    {
+        std::cout << "Ошибка - массив пуст\n";
+        return;
+    }
+
+    int* newArr = new int[size - 1];
+
+    for (int i = 0; i < index; i++)
+    {
+        newArr[i] = arr[i];
+    }
+
+    for (int i = index + 1; i < size; i++)
+    {
+        newArr[i - 1] = arr[i];
+    }
+
+    delete[] arr;
+    arr = newArr;
+    size--;
+
+    std::cout << "Элемент на позиции " << index << " удален\n";
+}
 
 
 
@@ -387,6 +443,25 @@ int main()
     std::cout << "\n";
     endArr(arr);
     deleteArr(arr);
+
+
+    system("pause");
+    system("cls");
+    std::cout << "ЗАДАНИЯ ЗА 5.11.2025 Тема Урок №14 Строки\n\n";
+    Sleep(3000);
+    indexElement(int** arr, int& size, int index, int value);
+
+
+
+
+
+
+
+
+
+
+
+
 
 return 0;
 
